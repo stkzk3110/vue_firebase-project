@@ -6,24 +6,10 @@
           <router-link to="/">cube's portfolio</router-link>
         </h1>
       </header>
-      <nav id="gnav" class="header-nav">
-        <ul>
-          <li><router-link to="/">HOME</router-link></li>
-          <li><router-link to="/about">ABOUT</router-link></li>
-          <li><router-link to="/skill">SKILL</router-link></li>
-          <li><router-link to="/contact">CONTACT</router-link></li>
-        </ul>
-      </nav>
+      <hnav></hnav>
     </div>
     <router-view/>
-    <nav class="footer-nav">
-      <ul>
-        <li><router-link to="/">HOME</router-link></li>
-        <li><router-link to="/about">ABOUT</router-link></li>
-        <li><router-link to="/skill">SKILL</router-link></li>
-        <li><router-link to="/contact">CONTACT</router-link></li>
-      </ul>
-    </nav>
+    <fnav></fnav>
     <div class="sns-box">
       <a href="https://twitter.com/fisherman3110se" target="_blank" class="sns-link">
           <i class="fab twitter-icon"></i>
@@ -46,6 +32,18 @@
     </footer>
   </div>
 </template>
+
+<script>
+import HeaderNav from './components/parts/HeaderNav'
+import FooterNav from './components/parts/FooterNav'
+export default {
+  name: "app",
+  components: {
+    hnav: HeaderNav,
+    fnav: FooterNav
+  }
+}
+</script>
 
 <style>
 #app {
