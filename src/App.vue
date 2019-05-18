@@ -40,7 +40,12 @@ export default {
   name: "app",
   components: {
     hnav: HeaderNav,
-    fnav: FooterNav
+    fnav: FooterNav,
+  },
+  data () {
+    return {
+      //
+    }
   }
 }
 </script>

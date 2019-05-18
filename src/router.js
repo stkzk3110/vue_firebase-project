@@ -34,6 +34,22 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './components/Contact.vue')
+    },
+    {
+      path: '/contact/completed',
+      name: 'contact_completed',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "about" */ './components/ContactCompleted.vue')
+    },
+    {
+      path: '*',
+      name: 'pagenotfound',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "about" */ './components/PageNotFound.vue')
     }
   ]
 })

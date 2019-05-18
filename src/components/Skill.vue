@@ -1,5 +1,5 @@
 <template>
-  <div class="skills">
+  <div class="skill">
     <div>
       <section class="skill_section">
         <div class="container">
@@ -142,15 +142,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import Skill from '@/components/Skill.vue'
-
-export default {
-  name: 'skill',
-  components: {
-    Skill
-  }
-}
 </script>
 
 <style lang="scss">

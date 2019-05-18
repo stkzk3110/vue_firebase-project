@@ -11,24 +11,24 @@
           <div class="form-item-box">
             <label class="control-label">Name<span class="label-required">必須</span></label>
             <div class="contact_form_input">
-              <input type="text" class="form-control" name="your-name" placeholder="Name" required id="name">
+              <input v-model="contactForm.name" type="text" class="form-control" name="your-name" placeholder="Name" required id="name">
             </div>
           </div>
           <div class="form-item-box">
             <label class="control-label">Email<span class="label-required">必須</span></label>
             <div class="contact_form_input">
-              <input type="email" class="form-control" name="your-email" placeholder="example@email.com" required id="email">
+              <input v-model="contactForm.email" type="email" class="form-control" name="your-email" placeholder="example@email.com" required id="email">
             </div>
           </div>
           <div class="form-item-box">
             <label class="control-label">Message<span class="label-required">必須</span></label>
             <div class="contact_from_input">
-              <textarea class="form-control" name="your-message" placeholder="Message" rows="8" required id="message"></textarea>
+              <textarea v-model="contactForm.contents" class="form-control" name="your-message" placeholder="Message" rows="8" required id="message"></textarea>
             </div>
           </div>
           <div class="form-item-box">
             <div class="form-button-box">
-              <button class="form-button" type="submit">Submit</button>
+              <button class="form-button" v-on:click="sendMail()">Submit</button>
             </div>
           </div>
         </form>
@@ -38,15 +38,37 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import Contact from '@/components/Contact.vue'
+import { functions } from '@/plugins/firebase'
 
 export default {
-  name: 'contact',
-  components: {
-    Contact
+  data: () => ({
+    contactForm: {
+      name: '',
+      contents: '',
+      email: '',
+      loading: false
+    }
+  }),
+  methods: {
+    sendMail: function () {
+      if(document.getElementById('name').value === '') {
+        alert('名前を入力してください');
+        return false;
+      }
+      if(document.getElementById('email').value === '') {
+        alert('メールアドレスを入力してください');
+        return false;
+      }
+      if(document.getElementById('message').value === '') {
+        alert('メッセージを入力してください');
+        return false;
+      }
+      const sendMail = functions.httpsCallable('sendMail')
+      window.location.href = '/contact/completed';
+    }
   }
 }
+
 </script>
 
 <style lang="scss">
