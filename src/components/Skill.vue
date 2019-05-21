@@ -1,5 +1,5 @@
 <template>
-  <div class="skill">
+  <div id="skill">
     <div>
       <section class="skill_section">
         <div class="container">
@@ -145,7 +145,7 @@
 </script>
 
 <style lang="scss">
-#skills {
+#skill {
   margin-top: 60px;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

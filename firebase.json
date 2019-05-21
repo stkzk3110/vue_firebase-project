@@ -6,14 +6,9 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "redirects": [{
-      "source": "/404",
-      "destination": "/404.html",
-      "type": 301
-    }],
     "rewrites": [{
-      "source": "**",
-      "destination": "/index.html"
+      "source": "/**",
+      "function": "sendMail"
     }]
   }
 }

@@ -10,7 +10,9 @@
   "dependencies": {
     "bootstrap-vue": "^2.0.0-rc.19",
     "core-js": "^2.6.5",
-    "firebase": "^5.7.2",
+    "firebase": "^5.11.1",
+    "firebase-admin": "^7.3.0",
+    "firebase-functions": "^2.3.1",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3"
   },

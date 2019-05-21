@@ -1,22 +1,23 @@
 const functions = require('firebase-functions');
 const nodemailer = require('nodemailer');
-// const gmailEmail = functions.config().gmail.email;
-// const gmailPassword = functions.config().gmail.password;
+const gmailEmail = functions.config().gmail.email;
+const gmailPassword = functions.config().gmail.password;
 
 // 送信に使用するメールサーバーの設定
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'fisherman0825dd@gmail.com',
-    pass: 'kazuki0825'
+    user: gmailEmail,
+    pass: gmailPassword
   }
 });
 
 // eslint-disable-next-line no-unused-vars
-exports.sendMail = functions.https.onCall((data, context) => {
+exports.sendMail = functions.https
+                            .onRequest((request, response) => {
   // メール設定
   const mailOptions = {
-    from: 'fisherman0825dd@gmail.com',
+    from: gmailEmail,
     to: 'fisherman3110dd@gmail.com',
     subject: "ホームページお問い合わせ",
     text: 'You got a mail!'

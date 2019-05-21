@@ -63,8 +63,15 @@ export default {
         alert('メッセージを入力してください');
         return false;
       }
-      const sendMail = functions.httpsCallable('sendMail')
-      window.location.href = '/contact/completed';
+      const sendMail = functions.httpsCallable('sendMail');
+      sendMail(this.contactForm)
+      .then(() => {
+        this.formReset();
+        window.location.href = '/contact/completed';
+      })
+      .catch(err => {
+        console.log(error);
+      })
     }
   }
 }
